@@ -1,0 +1,11 @@
+version: "2"
+sql:
+  - engine: "sqlite"
+    schema:
+      - "./migrations/*.sql"
+    queries: "./internal/adapters/repository/sqlc/queries.sql"
+    gen:
+      go:
+        package: "sqlc"                      # This package name will be used in the generated Go code.
+        out: "./internal/adapters/repository/sqlc"  # The location of the generated files.
+        # emit_json_tags: true #TODO: fix this
